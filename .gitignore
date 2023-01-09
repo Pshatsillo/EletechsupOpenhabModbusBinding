@@ -1,3 +1,5 @@
 /.idea/
 /history/
 /feature/
+src/main/feature/
+src/main/history/
