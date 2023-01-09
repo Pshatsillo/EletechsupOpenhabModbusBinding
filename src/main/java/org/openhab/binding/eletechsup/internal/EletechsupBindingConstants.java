@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2010-2023 Contributors to the openHAB project
+ * Copyright (c) 2010-2022 Contributors to the openHAB project
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information.
@@ -12,7 +12,13 @@
  */
 package org.openhab.binding.eletechsup.internal;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.openhab.binding.modbus.ModbusBindingConstants;
 import org.openhab.core.thing.ThingTypeUID;
 
 /**
@@ -24,11 +30,24 @@ import org.openhab.core.thing.ThingTypeUID;
 @NonNullByDefault
 public class EletechsupBindingConstants {
 
-    private static final String BINDING_ID = "eletechsup";
+    private static final String BINDING_ID = ModbusBindingConstants.BINDING_ID;
 
     // List of all Thing Type UIDs
-    public static final ThingTypeUID THING_TYPE_SAMPLE = new ThingTypeUID(BINDING_ID, "sample");
+    public static final ThingTypeUID THING_TYPE_ELETECHSUP = new ThingTypeUID(BINDING_ID, "sample");
 
     // List of all Channel ids
     public static final String CHANNEL_1 = "channel1";
+
+    public static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = new HashSet<>();
+    static {
+        SUPPORTED_THING_TYPES_UIDS.add(THING_TYPE_ELETECHSUP);
+    }
+    public static final Map<Integer, String> CHANNELS_ELETECHSUP = new HashMap<>();
+    static {
+        CHANNELS_ELETECHSUP.put(6, CHANNEL_1);
+        // CHANNELS_CHINASHIT.put(0, CHANNEL_BATTERY_VOLTAGE);
+        // CHANNELS_CHINASHIT.put(2, CHANNEL_BATTERY_CURRENT);
+        // CHANNELS_CHINASHIT.put(4, CHANNEL_STATE_OF_CHARGE);
+        // CHANNELS_CHINASHIT.put(58, CHANNEL_BATTERY_TEMPERATURE);
+    }
 }
